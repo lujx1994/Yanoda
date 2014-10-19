@@ -8,8 +8,8 @@
  
 <constant name="struts.convention.result.path" value="/"></constant>
  
-<package name="test" namespace="/" extends="struts-default">
-	<action name="login" class="com.action.Login" method="excute">
+<package name="test" namespace="/" extends="struts-default" >
+	<action name="login" class="com.action.UserAction" method="login">
 	<result name="success">/TestStruts.jsp</result>
 	<result name="error">/TestTomcat.jsp</result>
 	</action>
