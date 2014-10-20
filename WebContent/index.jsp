@@ -42,7 +42,10 @@
         }
         .mytime{
         	margin-top: 180px;
-        }
+        }  
+		a{
+			color:#FFFFFF;
+		}   
         body{
 			height: 630px;
 			background: url(images/mainbg.jpg);
@@ -119,7 +122,7 @@
 						<i class="icon-alarm-clock"></i>
 						</div>
 						<div class="brand">
-							<span class="label fg-white">时间</span>
+							<span class="label fg-white"><a class="myclass" href="/Yanoda/daymanage.jsp">日历</a></span>
 						</div>
                     </div>
                     <div class="tile ol-transparent">
@@ -127,7 +130,7 @@
 							<i class="icon-upload-3"></i>
 						</div>
 						<div class="brand">
-							<span class="label fg-white">上传</span>
+							<span class="label fg-white"><a class="myclass" href="/Yanoda/upload.jsp">上传</a></span>
 						</div>
                     </div>
                     <div class="tile ol-transparent">
@@ -135,7 +138,7 @@
 							<i class="icon-download-2"></i>
 						</div>
 						<div class="brand">
-							<span class="label fg-white">下载</span>
+							<span class="label fg-white"><a class="myclass" href="/Yanoda/table.jsp">下载</a></span>
 						</div>
                     </div>
                     <div class="tile ol-transparent">

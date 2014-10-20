@@ -19,6 +19,8 @@ public class UserAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private String user_name;
 	private String user_password;
+	private String lower_users;
+	private String user_realname;
 	private Tuser user;
 	private String message;
 	private String simpledate;
@@ -62,10 +64,18 @@ public class UserAction extends ActionSupport{
 			simpledate = SimpleDate.getSimpleDate(date);
 			form = FormDao.getForm(user_name,simpledate);
 			formconfirm = form.getConfirm();
+			lower_users = user.getLower_users();
+			user_realname = user.getUser_realname();
 			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("lowuserinSession", lower_users);
 			session.setAttribute("username", user_name);
+			session.setAttribute("userrealname", user_realname);
 			session.setAttribute("formconfirminSession", formconfirm);
 			return SUCCESS;
 		}
+	}
+	
+	public String changePassword(){
+		return SUCCESS;
 	}
 }

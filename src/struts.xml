@@ -10,10 +10,13 @@
  
 <package name="test" namespace="/" extends="struts-default" >
 	<action name="login" class="com.action.UserAction" method="login">
-	<result name="success">/TestStruts.jsp</result>
+	<result name="success">/index.jsp</result>
 	<result name="error">/TestTomcat.jsp</result>
 	</action>
-	<action name="upload" class="com.action.Upload" method="excute">
+	<action name="upload" class="com.action.UploadAction" method="execute">
+	<result>/TestStruts.jsp</result>
+	</action>
+		<action name="download" class="com.action.DownloadAction" method="execute">
 	<result>/TestStruts.jsp</result>
 	</action>
 </package>

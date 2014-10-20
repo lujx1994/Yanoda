@@ -28,18 +28,6 @@
     <!-- Local JavaScript -->
     <script src="js/docs.js"></script>
     <script src="js/github.info.js"></script>
-    
-    <style>
-    .fl{
-    	float:left
-    }
-    .fr{
-    	float:right;
-    }
-    .mymargin{
-    	margin-top:40px;
-    }
-    </style>
 
     <title>Metro UI CSS : Metro Bootstrap CSS Library</title>
 </head>
@@ -123,39 +111,60 @@
             </div>
     </header>
     <div class="container">
-    	<h1>
+        <h1>
             <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
             DataTables<small class="on-right">plugin</small>
         </h1>
-        <div class="mymargin">
-    	<div class="calendar small" data-role="calendar" data-locale="zhCN" >
-    	</div>
-    	</div>
-    	<div class="accordion with-marker mymargin" data-role="accordion" data-closeany="false">
-                <div class="accordion-frame fl">
-                    <a class="heading bg-lightBlue fg-white" href="#">&nbsp&nbsp&nbsp&nbsp日提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-                    <div class="content">
-                        <p>Anim pariatur cliche reprehenderit</p>
-                        <button class="primary">Activate the account</button>
-                    </div>
-                </div>
-                <div class="accordion-frame fl">
-                    <a class="heading ribbed-green fg-white" href="#">&nbsp&nbsp&nbsp&nbsp旬提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-                    <div class="content">
-                        <p>Ut wisi enim ad minim veniam</p>
-                        <button class="primary">Activate the account</button>
-                    </div>
-                </div>
-                <div class="accordion-frame fl">
-                    <a class="heading ribbed-red fg-white" href="#">&nbsp&nbsp&nbsp&nbsp月提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-                    <div class="content">
-                        <p>Ut wisi enim ad minim veniam</p>
-                        <button class="primary">Activate the account</button>
-                    </div>
-                </div>
+
+<!--         <p class="padding20 bg-grayLighter">
+            DataTables is a plug-in for the jQuery Javascript library written by <a href="http://www.sprymedia.co.uk/">SpryMedia</a>. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.
+        </p> -->
+
+<!--         <p class="description">
+            Metro UI CSS provides style support for DataTables.
+        </p> -->
+
+            <table class="table striped hovered dataTable" id="dataTables-1">
+                <thead>
+                <tr>
+                    <th class="text-left">Engine</th>
+                    <th class="text-left">Browser</th>
+                    <th class="text-left">Platform</th>
+                    <th class="text-left">Version</th>
+                    <th class="text-left">CSS grade</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+
+                <tfoot>
+                <tr>
+                    <th class="text-left">Engine</th>
+                    <th class="text-left">Browser</th>
+                    <th class="text-left">Platform</th>
+                    <th class="text-left">Version</th>
+                    <th class="text-left">CSS grade</th>
+                </tr>
+                </tfoot>
+            </table>
+
+            <script>
+                $(function(){
+                    $('#dataTables-1').dataTable( {
+                        "bProcessing": true,
+                        "sAjaxSource": "data/dataTables-objects.txt",
+                        "aoColumns": [
+                            { "mData": "engine" },
+                            { "mData": "browser" },
+                            { "mData": "platform" },
+                            { "mData": "version" },
+                            { "mData": "grade" }
+                        ]
+                    } );
+                });
+            </script>
         </div>
-    	
-    </div>
 
     <script src="js/hitua.js"></script>
 
