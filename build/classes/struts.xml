@@ -9,12 +9,14 @@
 <constant name="struts.convention.result.path" value="/"></constant>
  
 <package name="test" namespace="/" extends="struts-default" >
+	<global-results>
+		<result name="error">/login.jsp</result>
+	</global-results>
 	<action name="login" class="com.action.UserAction" method="login">
-	<result name="success">/index.jsp</result>
-	<result name="error">/TestTomcat.jsp</result>
+		<result name="success">/index.jsp</result>
 	</action>
 	<action name="upload" class="com.action.UploadAction" method="execute">
-	<result>/TestStruts.jsp</result>
+		<result>/TestStruts.jsp</result>
 	</action>
 		<action name="download" class="com.action.DownloadAction" method="execute">
 	<result>/TestStruts.jsp</result>

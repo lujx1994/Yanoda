@@ -30,7 +30,7 @@
     <script src="js/docs.js"></script>
     <script src="js/github.info.js"></script>
 
-    <title></title>
+    <title>Yanoda System 1.0</title>
 
     <style>
         .container {
@@ -42,10 +42,7 @@
         }
         .mytime{
         	margin-top: 180px;
-        }  
-		a{
-			color:#FFFFFF;
-		}   
+        }    
         body{
 			height: 630px;
 			background: url(images/mainbg.jpg);
@@ -117,30 +114,36 @@
 							<div class="badge bg-darkRed paused"></div>
 						</div>
                     </div>
+                    <a href="daymanage.jsp">
                     <div class="tile double ol-transparent">
                     	<div class="tile-content icon bg-amber">
 						<i class="icon-alarm-clock"></i>
 						</div>
 						<div class="brand">
-							<span class="label fg-white"><a class="myclass" href="/Yanoda/daymanage.jsp">日历</a></span>
+							<span class="label fg-white">日历</span>
 						</div>
                     </div>
+                    </a>
+                    <a href="upload.jsp">
                     <div class="tile ol-transparent">
 						<div class="tile-content icon bg-darkRed">
 							<i class="icon-upload-3"></i>
 						</div>
 						<div class="brand">
-							<span class="label fg-white"><a class="myclass" href="/Yanoda/upload.jsp">上传</a></span>
+							<span class="label fg-white">上传</span>
 						</div>
                     </div>
+                    </a>
+                    <a href="table.jsp">
                     <div class="tile ol-transparent">
 						<div class="tile-content icon bg-darkBlue">
 							<i class="icon-download-2"></i>
 						</div>
 						<div class="brand">
-							<span class="label fg-white"><a class="myclass" href="/Yanoda/table.jsp">下载</a></span>
+							<span class="label fg-white">下载</span>
 						</div>
                     </div>
+                    </a>
                     <div class="tile ol-transparent">
 						<div class="tile-content icon bg-darkPink">
 							<i class="icon-bell"></i>
@@ -158,6 +161,7 @@
 							<span class="label fg-white">邮件</span>
 						</div>
                     </div>
+                    <a href="upload.jsp">
                     <div class="tile double ol-transparent">
                         <div class="tile-content icon bg-blue">
 							<i class="icon-rainy-3"></i>
@@ -166,6 +170,7 @@
 							<span class="label fg-white">天气</span>
 						</div>
                     </div>
+                    </a>
                 </div>
             </div>
         </div> <!-- End of tiles -->

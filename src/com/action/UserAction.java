@@ -59,20 +59,24 @@ public class UserAction extends ActionSupport{
 			return ERROR;
 		}
 		else{
-			Form form = new Form();
-			Date date = new Date();
-			simpledate = SimpleDate.getSimpleDate(date);
-			form = FormDao.getForm(user_name,simpledate);
-			formconfirm = form.getConfirm();
-			lower_users = user.getLower_users();
-			user_realname = user.getUser_realname();
-			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("lowuserinSession", lower_users);
-			session.setAttribute("username", user_name);
-			session.setAttribute("userrealname", user_realname);
-			session.setAttribute("formconfirminSession", formconfirm);
 			return SUCCESS;
 		}
+	}
+	
+	public String findInfo(){
+		Form form = new Form();
+		Date date = new Date();
+		simpledate = SimpleDate.getSimpleDate(date);
+		form = FormDao.getForm(user_name,simpledate);
+		formconfirm = form.getConfirm();
+		lower_users = user.getLower_users();
+		user_realname = user.getUser_realname();
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("lowuserinSession", lower_users);
+		session.setAttribute("username", user_name);
+		session.setAttribute("userrealname", user_realname);
+		session.setAttribute("formconfirminSession", formconfirm);
+		return SUCCESS;
 	}
 	
 	public String changePassword(){
