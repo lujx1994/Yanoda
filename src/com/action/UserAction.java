@@ -27,7 +27,14 @@ public class UserAction extends ActionSupport{
 	private int range;
 	private Boolean formconfirm;
 	private String olduser_password;
+	private String check;
 	
+	public String getCheck() {
+		return check;
+	}
+	public void setCheck(String check) {
+		this.check = check;
+	}
 	public String getOlduser_password() {
 		return olduser_password;
 	}
@@ -175,6 +182,32 @@ public class UserAction extends ActionSupport{
 		}
 		this.addFieldError("addUserError", "添加成功！");
 		return SUCCESS;
+	}
+	
+	public String updateUser(){
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		String username = (String) session.getAttribute("username");
+		if (null == username || ("").equals(username.trim())) {
+			return ERROR;
+		}	
+		
+		Tuser tuser = new Tuser();
+		tuser = UserDao.getUser(username);
+		if (null == lower_users || ("").equals(lower_users.trim())){
+			tuser.setLower_users(null);
+		}
+		else{
+			tuser.setLower_users(lower_users);
+		}
+		tuser.setRange(range);
+		tuser.setUser_realname(user_realname);
+		new UserDao().updateUser(tuser);
+		tuser = UserDao.getUser(username);
+		session.setAttribute("lowusers", tuser.getLower_users());
+		session.setAttribute("userrealname", tuser.getUser_realname());
+		session.setAttribute("range", tuser.getRange());
+		this.addFieldError("updateError", "更新用户成功!");
+		return "success";
 	}
 	
 	public String logout() {

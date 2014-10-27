@@ -35,6 +35,10 @@
 	<action name="logout" class="com.action.UserAction" method="logout">
 	<result name="success">/login.jsp</result>
 	</action>
+	<action name="updateuser" class="com.action.UserAction" method="updateUser">
+	<result name="success">/updateuser.jsp</result>
+	<result name="input">/index.jsp</result>
+	</action>
 </package>
  
 </struts>

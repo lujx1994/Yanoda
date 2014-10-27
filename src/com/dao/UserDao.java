@@ -42,5 +42,11 @@ public class UserDao {
 		}
 		return user;
 	}
+	public void updateUser(Tuser user){
+		Session session = HibernateUtil.getHibernateSession();
+        session.beginTransaction();
+		session.update(user);
+		session.getTransaction().commit();
+	}
 
 }

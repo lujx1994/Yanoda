@@ -66,7 +66,7 @@
                         <div class="element place-right">
                             <a class="dropdown-toggle" href="index.jsp"><span class="icon-cog"></span></a>
                             <ul class="dropdown-menu place-right" data-role="dropdown">
-                                <li><a href="#">个人中心</a></li>
+                                <li><a href="updateuser.jsp">个人中心</a></li>
                                 <li><a href="changepassword">修改密码</a></li>
                                 <li><a href="logout">退出</a></li>
                             </ul>

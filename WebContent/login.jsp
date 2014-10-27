@@ -4,8 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+<title>登录</title>
 <style>
 *{
 	padding:0px;
@@ -32,24 +32,25 @@ img{
 	height:37px;
 	border:0;
 	color:#666;
-	width:236px;
+	width:232px;
 	margin:4px 28px;
 	background:url(images/user.png) no-repeat;
 	padding-left:10px;
-	font-size:16pt;
+	font-size:15pt;
 	font-family:Arial, Helvetica, sans-serif;
 }
 .pw{
 	height:37px;
 	border:0;
 	color:#666;
-	width:236px;
+	width:232px;
 	margin:4px 28px;
 	background:url(images/password.png) no-repeat;
 	padding-left:10px;
-	font-size:16pt;
+	font-size:15pt;
 	font-family:Arial, Helvetica, sans-serif;
 }
+
 .bn{width:330px; height:72px; background:url(images/enter.png) no-repeat; border:0; display:block; font-size:18px; color:#FFF; font-family:Arial, Helvetica, sans-serif; font-weight:bolder;}
 .lg_foot{
 	height:80px;
@@ -64,14 +65,14 @@ img{
     <div class="lg_top"></div>
     <div class="lg_main">
         <div class="lg_m_1">
-        <input name="user_name" class="ur" />
+        <input name="user_name" class="ur" style="font-family:微软雅黑, Helvetica, sans-serif;"/>
         <input name="user_password" type="password"  class="pw" />
         </div>
     </div>
-    <div class="lg_foot">
-    <input type="submit" value="登陆" class="bn" /></div>
+    <div class="lg_foot button">
+    <input type="submit" value="" class="bn" />
+    </div>
 </s:form>
-<s:fielderror fieldName="loginError" />
 </div>
 </body>
 </html>

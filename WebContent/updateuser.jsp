@@ -46,7 +46,7 @@
     }
     </style>
 
-    <title>日历</title>
+    <title>Yanoda System 1.0</title>
 </head>
 <body class="metro">
     <header class="bg-dark" data-load="header.html">
@@ -60,7 +60,7 @@
 
                     <div class="no-tablet-portrait">
                         <span class="element-divider"></span>
-                        <a class="element brand" href="calendar.jsp"><span class="icon-spin"></span></a>
+                        <a class="element brand" href="adduser.jsp"><span class="icon-spin"></span></a>
                         <span class="element-divider"></span>
 
                         <div class="element place-right">
@@ -83,32 +83,52 @@
     <div class="container">
     	<h1>
             <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
-            新增用户
+            更新个人信息
         </h1>
         
-		<s:form action="changepassword" method="post" >
-                                    <fieldset>
-                                       
-                                        <label>旧密码</label>
-                                        <div class="input-control password" data-role="input-control">
-                                            <input type="password" name="olduser_password" placeholder="请输入用户密码" autofocus>
-                                            <button class="btn-reveal" tabindex="-1"></button>
-                                        </div>
-                                        <label>新密码</label>
-                                        <div class="input-control password" data-role="input-control">
-                                            <input type="password" name="user_password" placeholder="请输入用户密码" autofocus>
-                                            <button class="btn-reveal" tabindex="-1"></button>
-                                        </div>
-                              
-
-                                        
-                                        <input type="submit" value="Submit">
-                                    </fieldset>
-                                </s:form>
-                                <s:fielderror fieldName="confirmPasswordError" />
-    </div>
-
-    
+		<s:form action="updateuser" method="post" >
+		<fieldset>
+					<label>用户名</label>
+                    <div class="input-control text" data-role="input-control">
+                        <input type="text" name="user_name" value="<s:property value="#session.username"/>" placeholder="type text" disabled>
+                    </div>
+                    <label>下级用户</label>
+                    <div class="input-control text" data-role="input-control">
+                        <input type="text" name="lower_users" value="<s:property value="#session.lowusers"/>" placeholder="type text">
+                        <button class="btn-clear" tabindex="-1"></button>
+                    </div>
+                    <label>真实姓名</label>
+                    <div class="input-control text" data-role="input-control">
+                        <input type="text" name="user_realname" value="<s:property value="#session.userrealname"/>" placeholder="type text">
+                        <button class="btn-clear" tabindex="-1"></button>
+                    </div>
+                    <div>
+                        <div class="clearfix">
+	                        <div class="input-control radio inline-block" data-role="input-control">
+	                            <label class="inline-block">
+	                                <input type="radio" name="range" value="1" <s:if test="#session.range==1">checked</s:if> />
+	                                <span class="check"></span>
+	                               	 部门经理
+	                            </label>
+	                            <label class="inline-block">
+	                                <input type="radio" name="range" value="2" <s:if test="#session.range==2">checked</s:if>  />
+	                                <span class="check"></span>
+	                                	分管领导
+	                            </label>
+	                            <label class="inline-block">
+	                                <input type="radio" name="range" value="3" <s:if test="#session.range==3">checked</s:if>  />
+	                                <span class="check"></span>
+	                                	总经理
+	                            </label>
+	                        </div>
+                    </div>
+                    </div>
+                        
+                        <input type="submit" value="Submit">
+                        </fieldset>
+		</s:form>
+		<s:fielderror fieldName="updateError" />
+	</div>    
 
 </body>
 </html>
