@@ -16,10 +16,24 @@
 		<result name="success">/index.jsp</result>
 	</action>
 	<action name="upload" class="com.action.UploadAction" method="execute">
-		<result>/TestStruts.jsp</result>
+		<result name="success">/upload.jsp</result>
 	</action>
-		<action name="download" class="com.action.DownloadAction" method="execute">
-	<result>/TestStruts.jsp</result>
+		<action name="download" class="com.action.DownloadAction" method="showDownload">
+	<result name="success">/download.jsp</result>
+	</action>
+	<action name="message" class="com.action.UserAction" method="showMessage">
+	<result name="success">/calendar.jsp</result>
+	</action>
+	<action name="adduser" class="com.action.UserAction" method="addUser">
+	<result name="success">/adduser.jsp</result>
+	<result name="fail">/adduser.jsp</result>
+	</action>
+	<action name="changepassword" class="com.action.UserAction" method="changePassword">
+	<result name="success">/changepassword.jsp</result>
+	<result name="fail">/changepassword.jsp</result>
+	</action>
+	<action name="logout" class="com.action.UserAction" method="logout">
+	<result name="success">/login.jsp</result>
 	</action>
 </package>
  

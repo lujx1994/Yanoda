@@ -29,6 +29,7 @@
     <!-- Local JavaScript -->
     <script src="js/docs.js"></script>
     <script src="js/github.info.js"></script>
+    <script src="js/hitua.js"></script>
     
     <style>
     .fl{
@@ -45,7 +46,7 @@
     }
     </style>
 
-    <title>Yanoda System 1.0</title>
+    <title>日历</title>
 </head>
 <body class="metro">
     <header class="bg-dark" data-load="header.html">
@@ -59,7 +60,7 @@
 
                     <div class="no-tablet-portrait">
                         <span class="element-divider"></span>
-                        <a class="element brand" href="upload.jsp"><span class="icon-spin"></span></a>
+                        <a class="element brand" href="daymanage.jsp"><span class="icon-spin"></span></a>
                         <span class="element-divider"></span>
 
                         <div class="element place-right">
@@ -80,49 +81,41 @@
             </div>
     </header>
     <div class="container">
-        <h1>
+    	<h1>
             <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
-            上传
+            日历
         </h1>
-
-             <s:form action="upload" enctype="multipart/form-data" method="post">
-                <fieldset>
-                   	<div style="margin-top: 10px">
+        <div class="mymargin">
+    	<div class="calendar small" data-role="calendar" data-locale="zhCN" >
+    	</div>
+    	</div>
+    	<div class="accordion with-marker mymargin" data-role="accordion" data-closeany="false">
+                <div class="accordion-frame fl">
+                    <a class="heading bg-lightBlue fg-white" href="#">&nbsp&nbsp&nbsp&nbsp日提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                    <div class="content">
+                        <p><s:property value="#session.message"></s:property></p>
+                        <a href="upload.jsp"><button class="primary">文件上传</button></a>
                     </div>
-                    <legend>请选择上传文件</legend>
-                    
-
-                    <div class="input-control file" data-role="input-control">
-                        <input type="file" name="uploadFile">
-                        <button class="btn-file"></button>
+                </div>
+                <div class="accordion-frame fl">
+                    <a class="heading ribbed-green fg-white" href="#">&nbsp&nbsp&nbsp&nbsp旬提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                    <div class="content">
+                        <p><s:property value="#session.message"></s:property></p>
+                        <a href="upload.jsp"><button class="primary">文件上传</button></a>
                     </div>
-
-                    <div>
-                        <div class="input-control switch" data-role="input-control">
-                            <label class="inline-block" style="margin-right: 20px">
-                               	报告已上传消息
-                                <input type="checkbox" checked/>
-                                <span class="check"></span>
-                            </label>
-                        </div>
+                </div>
+                <div class="accordion-frame fl">
+                    <a class="heading ribbed-red fg-white" href="#">&nbsp&nbsp&nbsp&nbsp月提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                    <div class="content">
+                        <p><s:property value="#session.message"></s:property></p>
+                        <a href="upload.jsp"><button class="primary">文件上传</button></a>
                     </div>
-       
-                    
-                    <div style="margin-top: 10px">
-                    </div>
-
-                    <input type="submit" value="提交">
-                    <input type="reset" value="重置">
-                   
-                    </div>
-
-                </fieldset>
-            </s:form>
-            <s:fielderror fieldName="uploadError" />
-            
+                </div>
         </div>
+    	
+    </div>
 
-    <script src="js/hitua.js"></script>
+    
 
 </body>
 </html>

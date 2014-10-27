@@ -23,6 +23,7 @@ public class UploadAction extends ActionSupport {
 	private String uploadFilePath;
 	private static String uploadFileDate;
 	private String uploadFilePerson;
+	private String download;
 	
 	public String getUploadFilePath() {
 		return uploadFilePath;
@@ -50,17 +51,33 @@ public class UploadAction extends ActionSupport {
 	}
 	
 	public String execute(){
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		String username = (String) session.getAttribute("username");
+		if (null == username || ("").equals(username.trim())) {
+			return ERROR;
+		}
+		
 		Date date = new Date();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		uploadFileDate = simpleDateFormat.format(date);
+		uploadFilePath = "c:\\uploadday\\";
+		download = "c:\\uploadday\\" + uploadFileFileName;
 		Form form = new Form();
+		File checkFile = new File(uploadFilePath+uploadFileFileName);
 		if (uploadFile == null){
 			return ERROR;
 		}
+		else if (checkFile.exists()){
+			checkFile.delete();
+			File savedFile = new File(uploadFilePath,uploadFileFileName);
+			uploadFile.renameTo(savedFile);
+			new FormDao().updateFormConfirm(uploadFileFileName);
+			this.addFieldError("uploadError", "上传成功");
+			return SUCCESS;
+		}
 		else{
-			HttpSession session = ServletActionContext.getRequest().getSession();
 			uploadFilePerson = (String) session.getAttribute("username");
-			uploadFilePath = "c:\\uploadday\\";
+			System.out.println(uploadFilePerson);
 			File savedFile = new File(uploadFilePath,uploadFileFileName);
 			uploadFile.renameTo(savedFile);
 			form.setForm_date(uploadFileDate);
@@ -68,7 +85,9 @@ public class UploadAction extends ActionSupport {
 			form.setForm_realpath(uploadFilePath);
 			form.setPoster_name(uploadFilePerson);
 			form.setConfirm(null);
+			form.setDownload(download);
 			new FormDao().saveForm(form);
+			this.addFieldError("uploadError", "上传成功");
 			return SUCCESS;
 		}
 	}

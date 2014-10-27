@@ -48,19 +48,40 @@
 			background: url(images/mainbg.jpg);
 			background-size: cover;
 		}
+		.usershow{
+			padding:0 55px 0 0;
+		}
+		#userright{
+			color:white; 
+			font-weight:50; 
+			height:24px;
+		}
+		.mydrop{
+			position:absolute;
+			left:1050px;
+			top:85px
+		}
     </style>
 </head>
 <body class="metro">
     <div class="container">
         <header class="margin20 nrm nlm">
             <div class="clearfix">
-                <div class="place-right">
-                    <form>
-                        <div class="input-control text size6 margin20 nrm">
-                            <input type="text" name="q" placeholder="Search...">
-                            <button class="btn-search"></button>
-                        </div>
-                    </form>
+                <div class="place-right usershow">
+	                 <h2>
+	                        <a class="dropdown-toggle" href="#">
+			                 <div id="userright" style="font-family:微软雅黑, Helvetica, sans-serif;">
+			                 	 <s:property value="#session.userrealname"/>
+				                 <span class="icon-user-2 on-right on-left bg-darkBlue" 
+				                 		style="background: grey; color: white; padding: 10px;">
+				                 </span>
+			                 </div>
+				            </a>
+				            <ul class="dropdown-menu place-left mydrop" data-role="dropdown">
+				                <li><a href="changepassword.jsp" style="font-family:微软雅黑, Helvetica, sans-serif;">更改密码</a></li>
+				                <li><a href="logout" style="font-family:微软雅黑, Helvetica, sans-serif;">注销</a></li>
+				            </ul>
+	                 </h2>
                 </div>
                 <a class="place-left" href="#" title="">
                     <h1>Yanoda System</h1>
@@ -114,7 +135,7 @@
 							<div class="badge bg-darkRed paused"></div>
 						</div>
                     </div>
-                    <a href="daymanage.jsp">
+                    <a href="message">
                     <div class="tile double ol-transparent">
                     	<div class="tile-content icon bg-amber">
 						<i class="icon-alarm-clock"></i>
@@ -134,7 +155,7 @@
 						</div>
                     </div>
                     </a>
-                    <a href="table.jsp">
+                    <a href="download">
                     <div class="tile ol-transparent">
 						<div class="tile-content icon bg-darkBlue">
 							<i class="icon-download-2"></i>
@@ -153,14 +174,16 @@
 							<span class="badge bg-orange">3</span>
 						</div>
                     </div>
+                    <a href="adduser.jsp">
                     <div class="tile ol-transparent">
                     	<div class="tile-content icon bg-green">
-							<i class="icon-mail"></i>
+							<i class="icon-user-2"></i>
 						</div>
                     	<div class="brand">
-							<span class="label fg-white">邮件</span>
+							<span class="label fg-white">用户管理</span>
 						</div>
                     </div>
+                    </a>
                     <a href="upload.jsp">
                     <div class="tile double ol-transparent">
                         <div class="tile-content icon bg-blue">

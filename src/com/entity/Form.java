@@ -12,6 +12,7 @@ public class Form {
 	private String form_realpath;
 	private String poster_name;
 	private Boolean confirm;
+	private String download;
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -49,6 +50,12 @@ public class Form {
 	}
 	public void setConfirm(Boolean confirm) {
 		this.confirm = confirm;
+	}
+	public String getDownload() {
+		return download;
+	}
+	public void setDownload(String download) {
+		this.download = download;
 	}
 	
 }

@@ -29,6 +29,7 @@
     <!-- Local JavaScript -->
     <script src="js/docs.js"></script>
     <script src="js/github.info.js"></script>
+    <script src="js/hitua.js"></script>
     
     <style>
     .fl{
@@ -45,7 +46,8 @@
     }
     </style>
 
-    <title>Yanoda System 1.0</title>
+    <title></title>
+    
 </head>
 <body class="metro">
     <header class="bg-dark" data-load="header.html">
@@ -66,8 +68,8 @@
                             <a class="dropdown-toggle" href="index.jsp"><span class="icon-cog"></span></a>
                             <ul class="dropdown-menu place-right" data-role="dropdown">
                                 <li><a href="#">个人中心</a></li>
-                                <li><a href="changepassword">修改密码</a></li>
-                                <li><a href="logout">退出</a></li>
+                                <li><a href="#">修改密码</a></li>
+                                <li><a href="#">退出</a></li>
                             </ul>
                         </div>
                         <span class="element-divider place-right"></span>
@@ -80,49 +82,15 @@
             </div>
     </header>
     <div class="container">
-        <h1>
-            <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
-            上传
-        </h1>
+	        
+	        <div style="margin-top: 10px">
+            </div>
+	        <h1>
+	            <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
+	            	操作成功
+	        </h1>
 
-             <s:form action="upload" enctype="multipart/form-data" method="post">
-                <fieldset>
-                   	<div style="margin-top: 10px">
-                    </div>
-                    <legend>请选择上传文件</legend>
-                    
 
-                    <div class="input-control file" data-role="input-control">
-                        <input type="file" name="uploadFile">
-                        <button class="btn-file"></button>
-                    </div>
-
-                    <div>
-                        <div class="input-control switch" data-role="input-control">
-                            <label class="inline-block" style="margin-right: 20px">
-                               	报告已上传消息
-                                <input type="checkbox" checked/>
-                                <span class="check"></span>
-                            </label>
-                        </div>
-                    </div>
-       
-                    
-                    <div style="margin-top: 10px">
-                    </div>
-
-                    <input type="submit" value="提交">
-                    <input type="reset" value="重置">
-                   
-                    </div>
-
-                </fieldset>
-            </s:form>
-            <s:fielderror fieldName="uploadError" />
-            
         </div>
-
-    <script src="js/hitua.js"></script>
-
 </body>
 </html>

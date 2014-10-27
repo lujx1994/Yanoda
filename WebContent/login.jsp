@@ -71,6 +71,7 @@ img{
     <div class="lg_foot">
     <input type="submit" value="登陆" class="bn" /></div>
 </s:form>
+<s:fielderror fieldName="loginError" />
 </div>
 </body>
 </html>

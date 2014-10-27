@@ -1,4 +1,5 @@
 package com.dao;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -12,6 +13,20 @@ public class UserDao {
         session.beginTransaction();
 		session.save(user);
 		session.getTransaction().commit();
+		return "success";
+	}
+	
+	public String changeUserPassword(String password, String username){
+		try {
+			Session session = HibernateUtil.getHibernateSession();
+			session.beginTransaction();
+			String Sql = "update Tuser set user_password='"+password+"' where user_name='"+username+"'";
+			Query query = session.createQuery(Sql);
+			query.executeUpdate();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			
+		}
 		return "success";
 	}
 	public static Tuser getUser(String name) {

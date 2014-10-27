@@ -29,6 +29,7 @@
     <!-- Local JavaScript -->
     <script src="js/docs.js"></script>
     <script src="js/github.info.js"></script>
+    <script src="js/hitua.js"></script>
     
     <style>
     .fl{
@@ -45,7 +46,8 @@
     }
     </style>
 
-    <title>Yanoda System 1.0</title>
+    <title></title>
+    
 </head>
 <body class="metro">
     <header class="bg-dark" data-load="header.html">
@@ -80,49 +82,36 @@
             </div>
     </header>
     <div class="container">
-        <h1>
-            <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
-            上传
-        </h1>
-
-             <s:form action="upload" enctype="multipart/form-data" method="post">
-                <fieldset>
-                   	<div style="margin-top: 10px">
-                    </div>
-                    <legend>请选择上传文件</legend>
-                    
-
-                    <div class="input-control file" data-role="input-control">
-                        <input type="file" name="uploadFile">
-                        <button class="btn-file"></button>
-                    </div>
-
-                    <div>
-                        <div class="input-control switch" data-role="input-control">
-                            <label class="inline-block" style="margin-right: 20px">
-                               	报告已上传消息
-                                <input type="checkbox" checked/>
-                                <span class="check"></span>
-                            </label>
-                        </div>
-                    </div>
-       
-                    
-                    <div style="margin-top: 10px">
-                    </div>
-
-                    <input type="submit" value="提交">
-                    <input type="reset" value="重置">
-                   
-                    </div>
-
-                </fieldset>
-            </s:form>
-            <s:fielderror fieldName="uploadError" />
+	        <h1>
+	            <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
+	            	文件下载
+	        </h1>
+	        
+	        <div style="margin-top: 40px">
+            </div>
             
+            <table class="table striped bordered hovered">
+                <thead>
+                <tr>
+                    <th class="text-left">复命人</th>
+                    <th class="text-left">复命文件名</th>
+                    <th class="text-left">上传时间</th>
+                    <th class="text-left">下载</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <s:iterator value="formList">
+                <tr class="">
+                <td><s:property value="poster_name"/></td>
+                <td class="right"><s:property value="form_name"/></td>
+                <td class="right"><s:property value="form_date"/></td>
+                <td class="right"><a href=<s:property value="download"/>><i class="icon-floppy on-left"></i>下载</a></td>
+                </tr>
+                </s:iterator>
+                </tbody>
+            </table>
+
         </div>
-
-    <script src="js/hitua.js"></script>
-
 </body>
 </html>

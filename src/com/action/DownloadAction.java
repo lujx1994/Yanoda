@@ -1,6 +1,6 @@
 package com.action;
 
-import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpSession;
@@ -14,27 +14,70 @@ import com.entity.Tuser;
 import com.service.SimpleDate;
 
 public class DownloadAction {
-	private String path;
 	private String username;
-	private String loweruser;
 	private String simpledate;
-	private String filename;
-	public java.io.InputStream getDownloadFile() throws Exception{
+	private ArrayList<Form> formList;
+	public ArrayList<Form> getFormList() {
+		return formList;
+	}
+
+	public void setFormList(ArrayList<Form> formList) {
+		this.formList = formList;
+	}
+	
+	public String showDownload(){
+		
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		username = (String) session.getAttribute("username");
-		Tuser user = new Tuser();
-		user = UserDao.getUser(username);
-		loweruser = user.getLower_users();
+		if (null == username || ("").equals(username.trim())) {
+			return "error";
+		}
+		
+		int i,j;
 		Date date = new Date();
 		simpledate = SimpleDate.getSimpleDate(date);
-		Form form = new Form(); 
-		form = FormDao.getForm(loweruser, simpledate);
-		path = form.getForm_realpath();
-		filename = form.getForm_name();
-		InputStream in = ServletActionContext.getServletContext().getResourceAsStream(path+filename);
-		return in;
-	}
-	public String execute() throws Exception{
+		Tuser user = new Tuser();
+		user = UserDao.getUser(username);
+		String[] loweruserStrings = user.getLower_users().split(",");
+		formList = new ArrayList<Form>();
+		Form[] lform = new Form[20];
+		if (user.getRange()==3){
+		for (i=0;i<loweruserStrings.length;i++){
+			Tuser luser = new Tuser();
+			luser = UserDao.getUser(loweruserStrings[i]);
+			if (luser.getRange()==1){
+				Form nform = new Form();
+				nform = FormDao.getForm(luser.getUser_name(), simpledate);
+				if (nform!=null){
+				formList.add(nform);
+				}
+				else{
+				}
+			}
+			else{
+			String[] lowerlowerusersStrings = luser.getLower_users().split(",");
+			for (j=0;j<lowerlowerusersStrings.length;j++){
+				lform[j] = FormDao.getForm(lowerlowerusersStrings[j],simpledate);
+				if (lform[j]==null){
+				}
+				else{
+					if (lform[j].getConfirm()==true){
+						formList.add(lform[j]);
+					} 
+					else{
+					}
+				}
+			}
+			}
+		}
+		}
+		else{
+			Form[] form = new Form[loweruserStrings.length];
+			for (i=0;i<loweruserStrings.length;i++){
+				form[i] = FormDao.getForm(loweruserStrings[i],simpledate);
+				formList.add(form[i]);
+			}
+		}
 		return "success";
 	}
 }

@@ -29,6 +29,7 @@
     <!-- Local JavaScript -->
     <script src="js/docs.js"></script>
     <script src="js/github.info.js"></script>
+    <script src="js/hitua.js"></script>
     
     <style>
     .fl{
@@ -45,7 +46,7 @@
     }
     </style>
 
-    <title>Yanoda System 1.0</title>
+    <title>日历</title>
 </head>
 <body class="metro">
     <header class="bg-dark" data-load="header.html">
@@ -59,7 +60,7 @@
 
                     <div class="no-tablet-portrait">
                         <span class="element-divider"></span>
-                        <a class="element brand" href="upload.jsp"><span class="icon-spin"></span></a>
+                        <a class="element brand" href="calendar.jsp"><span class="icon-spin"></span></a>
                         <span class="element-divider"></span>
 
                         <div class="element place-right">
@@ -80,49 +81,34 @@
             </div>
     </header>
     <div class="container">
-        <h1>
+    	<h1>
             <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
-            上传
+            新增用户
         </h1>
+        
+		<s:form action="changepassword" method="post" >
+                                    <fieldset>
+                                       
+                                        <label>旧密码</label>
+                                        <div class="input-control password" data-role="input-control">
+                                            <input type="password" name="olduser_password" placeholder="请输入用户密码" autofocus>
+                                            <button class="btn-reveal" tabindex="-1"></button>
+                                        </div>
+                                        <label>新密码</label>
+                                        <div class="input-control password" data-role="input-control">
+                                            <input type="password" name="user_password" placeholder="请输入用户密码" autofocus>
+                                            <button class="btn-reveal" tabindex="-1"></button>
+                                        </div>
+                              
 
-             <s:form action="upload" enctype="multipart/form-data" method="post">
-                <fieldset>
-                   	<div style="margin-top: 10px">
-                    </div>
-                    <legend>请选择上传文件</legend>
-                    
+                                        
+                                        <input type="submit" value="Submit">
+                                    </fieldset>
+                                </s:form>
+                                <s:fielderror fieldName="confirmPasswordError" />
+    </div>
 
-                    <div class="input-control file" data-role="input-control">
-                        <input type="file" name="uploadFile">
-                        <button class="btn-file"></button>
-                    </div>
-
-                    <div>
-                        <div class="input-control switch" data-role="input-control">
-                            <label class="inline-block" style="margin-right: 20px">
-                               	报告已上传消息
-                                <input type="checkbox" checked/>
-                                <span class="check"></span>
-                            </label>
-                        </div>
-                    </div>
-       
-                    
-                    <div style="margin-top: 10px">
-                    </div>
-
-                    <input type="submit" value="提交">
-                    <input type="reset" value="重置">
-                   
-                    </div>
-
-                </fieldset>
-            </s:form>
-            <s:fielderror fieldName="uploadError" />
-            
-        </div>
-
-    <script src="js/hitua.js"></script>
+    
 
 </body>
 </html>
