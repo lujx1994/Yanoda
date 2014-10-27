@@ -69,8 +69,8 @@ img{
         <input name="user_password" type="password"  class="pw" />
         </div>
     </div>
-    <div class="lg_foot button">
-    <input type="submit" value="" class="bn" />
+    <div class="lg_foot">
+    <input type="submit" value="登 陆" class="bn" />
     </div>
 </s:form>
 </div>
