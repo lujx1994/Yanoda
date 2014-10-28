@@ -70,7 +70,7 @@ img{
         </div>
     </div>
     <div class="lg_foot">
-    <input type="submit" value="登 陆" class="bn" />
+    <input type="submit" value="" class="bn" />
     </div>
 </s:form>
 </div>
