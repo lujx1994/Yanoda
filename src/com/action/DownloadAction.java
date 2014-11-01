@@ -41,11 +41,11 @@ public class DownloadAction {
 		String[] loweruserStrings = user.getLower_users().split(",");
 		formList = new ArrayList<Form>();
 		Form[] lform = new Form[20];
-		if (user.getRange()==3){
+		if (user.getUser_range()==3){
 		for (i=0;i<loweruserStrings.length;i++){
 			Tuser luser = new Tuser();
 			luser = UserDao.getUser(loweruserStrings[i]);
-			if (luser.getRange()==1){
+			if (luser.getUser_range()==1){
 				Form nform = new Form();
 				nform = FormDao.getForm(luser.getUser_name(), simpledate);
 				if (nform!=null){

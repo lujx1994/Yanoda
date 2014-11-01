@@ -7,8 +7,8 @@
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection settings -->
-        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-        <property name="connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=yanoda</property>
+    	<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    	<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=yanoda</property>
         <property name="connection.username">sa</property>
         <property name="connection.password">123</property>
         <!-- JDBC connection pool (use the built-in) -->
@@ -24,8 +24,10 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
        	
-       	<mapping class="com.entity.Form"/>
+       	
        	<mapping class="com.entity.Tuser"/>
+       	<mapping class="com.entity.Form"/>
+       	
        
     </session-factory>
 </hibernate-configuration>

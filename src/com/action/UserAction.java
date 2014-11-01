@@ -89,13 +89,13 @@ public class UserAction extends ActionSupport{
 		Tuser user = new Tuser();
 		user = UserDao.getUser(user_name);
 		if(null == user||!user_password.equals(user.getUser_password())) {
-			this.addFieldError("loginError", "ÓÃ»§Ãû»òÃÜÂë´íÎó");
+			this.addFieldError("loginError", "ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			return ERROR;
 		}
 		else{
 			lower_users = user.getLower_users();
 			user_realname = user.getUser_realname();
-			range = user.getRange();
+			range = user.getUser_range();
 			HttpSession session = ServletActionContext.getRequest().getSession();
 			session.setAttribute("lowusers", lower_users);
 			session.setAttribute("username", user_name);
@@ -116,19 +116,19 @@ public class UserAction extends ActionSupport{
 		simpledate = SimpleDate.getSimpleDate(date);
 		form = FormDao.getForm(username,simpledate);
 		if (form==null){
-			message = "Çë¼°Ê±ÉÏ´«¸´Ãü±í";
+			message = "ï¿½ë¼°Ê±ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 			session.setAttribute("message", message);
 			return SUCCESS;
 		}
 		else{
 			formconfirm = form.getConfirm();
 			if (formconfirm==null){
-				message = "¸´Ãü±í´ýÉóÖÐ";
+				message = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 				session.setAttribute("message", message);
 				return SUCCESS;
 			}
 			else{
-				message = "¸´Ãü±íÒÑ±»ÉÏ¼¶ÉóÔÄ";
+				message = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ±ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½";
 				session.setAttribute("message", message);
 				return SUCCESS;
 			}
@@ -148,10 +148,10 @@ public class UserAction extends ActionSupport{
 			new UserDao().changeUserPassword(user_password,username);
 		}
 		else{
-			this.addFieldError("confirmPasswordError", "Ô­Ê¼ÃÜÂëÊäÈë´íÎó£¡");
+			this.addFieldError("confirmPasswordError", "Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			return "fail";
 		}
-		this.addFieldError("confirmPasswordError", "ÐÞ¸ÄÃÜÂë³É¹¦£¡");
+		this.addFieldError("confirmPasswordError", "ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½");
 		return SUCCESS;
 	}
 	
@@ -173,14 +173,14 @@ public class UserAction extends ActionSupport{
 			else{
 				user.setLower_users(lower_users);
 			}
-			user.setRange(range);
+			user.setUser_range(range);
 			new UserDao().saveUser(user);
 		}
 		else{
-			this.addFieldError("addUserError", "ÄãÃ»ÓÐÌí¼ÓÓÃ»§µÄÈ¨ÏÞ£¡");
+			this.addFieldError("addUserError", "ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½È¨ï¿½Þ£ï¿½");
 			return "fail";
 		}
-		this.addFieldError("addUserError", "Ìí¼Ó³É¹¦£¡");
+		this.addFieldError("addUserError", "ï¿½ï¿½Ó³É¹ï¿½ï¿½ï¿½");
 		return SUCCESS;
 	}
 	
@@ -199,14 +199,14 @@ public class UserAction extends ActionSupport{
 		else{
 			tuser.setLower_users(lower_users);
 		}
-		tuser.setRange(range);
+		tuser.setUser_range(range);
 		tuser.setUser_realname(user_realname);
 		new UserDao().updateUser(tuser);
 		tuser = UserDao.getUser(username);
 		session.setAttribute("lowusers", tuser.getLower_users());
 		session.setAttribute("userrealname", tuser.getUser_realname());
-		session.setAttribute("range", tuser.getRange());
-		this.addFieldError("updateError", "¸üÐÂÓÃ»§³É¹¦!");
+		session.setAttribute("range", tuser.getUser_range());
+		this.addFieldError("updateError", "ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½É¹ï¿½!");
 		return "success";
 	}
 	
