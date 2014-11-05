@@ -114,7 +114,7 @@
 						<div class="brand bg-black">
 							<span class="label fg-white">Player</span>
 							<div class="badge bg-darkRed paused"></div>
-						</div>
+						</div>   
                     </div>
                     <a href="message">
                     <div class="tile double ol-transparent">
@@ -165,16 +165,22 @@
 						</div>
                     </div>
                     </a>
-                    <a href="upload.jsp">
                     <div class="tile double ol-transparent">
                         <div class="tile-content icon bg-blue">
+							<s:if test="'小雨'==#session.showweather">
 							<i class="icon-rainy-3"></i>
+							</s:if>
+							<s:elseif test="'多云'==#session.showweather">
+							<i class="icon-windy-3"></i>
+							</s:elseif>
+							<s:else>
+							<i class="icon-sun-3"></i>
+							</s:else>
 						</div>
                     	<div class="brand">
-							<span class="label fg-white">天气</span>
+							<span class="label fg-white"><s:property value="#session.showweather"></s:property></span>
 						</div>
                     </div>
-                    </a>
                 </div>
             </div>
         </div> <!-- End of tiles -->

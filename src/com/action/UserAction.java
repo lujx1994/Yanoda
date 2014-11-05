@@ -13,6 +13,7 @@ import com.entity.Form;
 import com.entity.Tuser;
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.SimpleDate;
+import com.service.WeatherUtil;
 
 public class UserAction extends ActionSupport{
 
@@ -89,13 +90,15 @@ public class UserAction extends ActionSupport{
 		Tuser user = new Tuser();
 		user = UserDao.getUser(user_name);
 		if(null == user||!user_password.equals(user.getUser_password())) {
-			this.addFieldError("loginError", "�û������������");
+			this.addFieldError("loginError", "Login Fail");
 			return ERROR;
 		}
 		else{
 			lower_users = user.getLower_users();
 			user_realname = user.getUser_realname();
 			range = user.getUser_range();
+			new WeatherUtil();
+			WeatherUtil.GetWeather("三亚");
 			HttpSession session = ServletActionContext.getRequest().getSession();
 			session.setAttribute("lowusers", lower_users);
 			session.setAttribute("username", user_name);
@@ -106,6 +109,7 @@ public class UserAction extends ActionSupport{
 	}
 	
 	public String showMessage(){
+		try{
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		String username = (String) session.getAttribute("username");
 		if (null == username || ("").equals(username.trim())) {
@@ -116,22 +120,27 @@ public class UserAction extends ActionSupport{
 		simpledate = SimpleDate.getSimpleDate(date);
 		form = FormDao.getForm(username,simpledate);
 		if (form==null){
-			message = "�뼰ʱ�ϴ�������";
+			message = "请及时上传复命表";
 			session.setAttribute("message", message);
 			return SUCCESS;
 		}
 		else{
 			formconfirm = form.getConfirm();
 			if (formconfirm==null){
-				message = "�����������";
+				message = "复命表待审阅";
 				session.setAttribute("message", message);
 				return SUCCESS;
 			}
 			else{
-				message = "�������ѱ��ϼ�����";
+				message = "复命表已审阅";
 				session.setAttribute("message", message);
 				return SUCCESS;
 			}
+		}
+		}catch (Exception ex) {
+			ex.printStackTrace();
+			return SUCCESS;
+			
 		}
 	}
 	
@@ -148,10 +157,10 @@ public class UserAction extends ActionSupport{
 			new UserDao().changeUserPassword(user_password,username);
 		}
 		else{
-			this.addFieldError("confirmPasswordError", "ԭʼ�����������");
+			this.addFieldError("confirmPasswordError", "原始密码错误，请重新输入");
 			return "fail";
 		}
-		this.addFieldError("confirmPasswordError", "�޸�����ɹ���");
+		this.addFieldError("confirmPasswordError", "操作成功");
 		return SUCCESS;
 	}
 	
@@ -177,10 +186,10 @@ public class UserAction extends ActionSupport{
 			new UserDao().saveUser(user);
 		}
 		else{
-			this.addFieldError("addUserError", "��û������û���Ȩ�ޣ�");
+			this.addFieldError("addUserError", "您没有添加用户的权限");
 			return "fail";
 		}
-		this.addFieldError("addUserError", "��ӳɹ���");
+		this.addFieldError("addUserError", "操作成功");
 		return SUCCESS;
 	}
 	
@@ -206,7 +215,7 @@ public class UserAction extends ActionSupport{
 		session.setAttribute("lowusers", tuser.getLower_users());
 		session.setAttribute("userrealname", tuser.getUser_realname());
 		session.setAttribute("range", tuser.getUser_range());
-		this.addFieldError("updateError", "�����û��ɹ�!");
+		this.addFieldError("updateError", "个人信息更新成功!");
 		return "success";
 	}
 	

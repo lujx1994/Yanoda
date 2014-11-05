@@ -26,7 +26,7 @@ public class DownloadAction {
 	}
 	
 	public String showDownload(){
-		
+		try{
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		username = (String) session.getAttribute("username");
 		if (null == username || ("").equals(username.trim())) {
@@ -77,6 +77,9 @@ public class DownloadAction {
 				form[i] = FormDao.getForm(loweruserStrings[i],simpledate);
 				formList.add(form[i]);
 			}
+		}
+		}catch (Exception ex) {
+			ex.printStackTrace();
 		}
 		return "success";
 	}

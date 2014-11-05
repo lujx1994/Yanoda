@@ -9,8 +9,11 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import com.dao.FormDao;
+import com.dao.UserDao;
 import com.entity.Form;
+import com.entity.Tuser;
 import com.opensymphony.xwork2.ActionSupport;
+import com.service.SMS;
 
 public class UploadAction extends ActionSupport {
 	/**
@@ -24,6 +27,7 @@ public class UploadAction extends ActionSupport {
 	private static String uploadFileDate;
 	private String uploadFilePerson;
 	private String download;
+	private String username;
 	
 	public String getUploadFilePath() {
 		return uploadFilePath;
@@ -52,7 +56,7 @@ public class UploadAction extends ActionSupport {
 	
 	public String execute(){
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		String username = (String) session.getAttribute("username");
+		username = (String) session.getAttribute("username");
 		if (null == username || ("").equals(username.trim())) {
 			return ERROR;
 		}
@@ -72,7 +76,7 @@ public class UploadAction extends ActionSupport {
 			File savedFile = new File(uploadFilePath,uploadFileFileName);
 			uploadFile.renameTo(savedFile);
 			new FormDao().updateFormConfirm(uploadFileFileName);
-			this.addFieldError("uploadError", "�ϴ��ɹ�");
+			this.addFieldError("uploadError", "操作成功");
 			return SUCCESS;
 		}
 		else{
@@ -87,7 +91,16 @@ public class UploadAction extends ActionSupport {
 			form.setConfirm(null);
 			form.setDownload(download);
 			new FormDao().saveForm(form);
-			this.addFieldError("uploadError", "�ϴ��ɹ�");
+			Tuser smsUser = UserDao.getUser(username);
+			String higer_users = smsUser.getHiger_users();
+			Tuser smsHigh = UserDao.getUser(higer_users);
+			String moblieSMS = smsHigh.getMoblie();
+			try {
+				SMS.send("您下属的报表已提交，请及时审阅。", moblieSMS);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			this.addFieldError("uploadError", "操作成功");
 			return SUCCESS;
 		}
 	}

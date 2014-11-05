@@ -12,6 +12,9 @@ public class Tuser {
 	private String user_realname;
 	private String lower_users;
 	private int user_range;
+	private String moblie;
+	private String higer_users;
+	
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -49,6 +52,18 @@ public class Tuser {
 	}
 	public void setUser_range(int range) {
 		this.user_range = range;
+	}
+	public String getMoblie() {
+		return moblie;
+	}
+	public void setMoblie(String moblie) {
+		this.moblie = moblie;
+	}
+	public String getHiger_users() {
+		return higer_users;
+	}
+	public void setHiger_users(String higer_users) {
+		this.higer_users = higer_users;
 	}
 	
 }
