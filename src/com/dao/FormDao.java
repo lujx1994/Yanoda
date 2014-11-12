@@ -1,6 +1,6 @@
 package com.dao;
 
-wrong
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
