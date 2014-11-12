@@ -100,7 +100,7 @@
                     <div>
                         <div class="input-control switch" data-role="input-control">
                             <label class="inline-block" style="margin-right: 20px">
-                               	报告已上传消息
+                               	发送短信，报告已上传消息
                                 <input type="checkbox" checked/>
                                 <span class="check"></span>
                             </label>

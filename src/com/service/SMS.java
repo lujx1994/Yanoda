@@ -10,12 +10,6 @@ public class SMS {
 	private static final String addr = "http://api.sms.cn/mt/";
 	private static final String userId = "lujx1994";
 	
-	/*
-	 * 如uid是：test，登录密码是：123123 
-	   pwd=md5(123123test),即
-       pwd=b9887c5ebb23ebb294acab183ecf0769
-                  在线生成地址：http://www.sms.cn/password
-	 */
 	private static final String pwd = "189d2feb40ca6d4b20242d5b56c3a29b";   
 
 	public static void send(String msgContent, String mobile) throws Exception {

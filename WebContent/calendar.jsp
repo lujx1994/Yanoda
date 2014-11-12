@@ -89,30 +89,12 @@
     	<div class="calendar small" data-role="calendar" data-locale="zhCN" >
     	</div>
     	</div>
-    	<div class="accordion with-marker mymargin" data-role="accordion" data-closeany="false">
-                <div class="accordion-frame fl">
-                    <a class="heading bg-lightBlue fg-white" href="#">&nbsp&nbsp&nbsp&nbsp日提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-                    <div class="content">
-                        <p><s:property value="#session.message"></s:property></p>
-                        <a href="upload.jsp"><button class="primary">文件上传</button></a>
-                    </div>
-                </div>
-                <div class="accordion-frame fl">
-                    <a class="heading ribbed-green fg-white" href="#">&nbsp&nbsp&nbsp&nbsp旬提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-                    <div class="content">
-                        <p><s:property value="#session.message"></s:property></p>
-                        <a href="upload.jsp"><button class="primary">文件上传</button></a>
-                    </div>
-                </div>
-                <div class="accordion-frame fl">
-                    <a class="heading ribbed-red fg-white" href="#">&nbsp&nbsp&nbsp&nbsp月提醒&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
-                    <div class="content">
-                        <p><s:property value="#session.message"></s:property></p>
-                        <a href="upload.jsp"><button class="primary">文件上传</button></a>
-                    </div>
-                </div>
+    	<div class="span3">
+	        <div class="input-control text" data-role="datepicker" data-date="2013-11-13" data-effect="slide" data-other-days="1">
+	        <input type="text">
+	        <button class="btn-date"></button>
+	        </div>
         </div>
-    	
     </div>
 
     

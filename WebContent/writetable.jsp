@@ -46,7 +46,7 @@
     }
     </style>
 
-    <title>Yanoda System 1.0</title>
+    <title>日历</title>
 </head>
 <body class="metro">
     <header class="bg-dark" data-load="header.html">
@@ -60,7 +60,7 @@
 
                     <div class="no-tablet-portrait">
                         <span class="element-divider"></span>
-                        <a class="element brand" href="adduser.jsp"><span class="icon-spin"></span></a>
+                        <a class="element brand" href="daymanage.jsp"><span class="icon-spin"></span></a>
                         <span class="element-divider"></span>
 
                         <div class="element place-right">
@@ -83,65 +83,31 @@
     <div class="container">
     	<h1>
             <a href="index.jsp"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>
-            新增用户
+            今日复命表
         </h1>
         
-		<s:form action="adduser" method="post" >
+        <form action="write" method="post">
                                     <fieldset>
-                                        <label>用户名</label>
+                                        <legend>日复命表</legend>
+                                        <label>标题</label>
                                         <div class="input-control text" data-role="input-control">
-                                            <input type="text" name="user_name" placeholder="请输入用户名">
+                                            <input type="text" placeholder="请填写报告标题" name="reportName">
                                             <button class="btn-clear" tabindex="-1"></button>
                                         </div>
-                                        <label>用户密码</label>
-                                        <div class="input-control password" data-role="input-control">
-                                            <input type="password" name="user_password" placeholder="请输入用户密码" autofocus>
-                                            <button class="btn-reveal" tabindex="-1"></button>
-                                        </div>
-                                        <label>用户真实名称</label>
+                                        <label>报告人</label>
                                         <div class="input-control text" data-role="input-control">
-                                            <input type="text" name="user_realname" placeholder="请用户真实名称">
+                                            <input placeholder="请填写报告人" name="reportPerson">
                                             <button class="btn-clear" tabindex="-1"></button>
                                         </div>
-                                        <label>直属下级用户名</label>
-                                        <div class="input-control text" data-role="input-control">
-                                            <input type="text" name="lower_users" placeholder="请用,隔开输入直属下级用户名">
-                                            <button class="btn-clear" tabindex="-1"></button>
+                                        <label>今日情况报告</label>
+                                        <div class="input-control textarea">
+                                        <textarea name="reportText" placeholder="请填写报告内容"></textarea>
                                         </div>
-
-                                        <label>用户级别</label>
-                                        <div>
-                                        
-                                            <div class="input-control radio default-style" data-role="input-control">
-                                                <label>
-                                                    <input type="radio" name="range" value="1" checked />
-                                                    <span class="check"></span>
-                                                    	部门经理
-                                                </label>
-                                            </div>
-                                            <div class="input-control radio  default-style" data-role="input-control">
-                                                <label>
-                                                    <input type="radio" name="range" value="2" />
-                                                    <span class="check"></span>
-                                                    	分管领导
-                                                </label>
-                                            </div>
-                                            <div class="input-control radio  default-style" data-role="input-control">
-                                                <label>
-                                                    <input type="radio" name="range" value="3" />
-                                                    <span class="check"></span>
-                                                   	 总经理
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <input type="submit" value="Submit">
+                                        <input type="submit" value="提交">
                                     </fieldset>
-                                </s:form>
-                                <s:fielderror fieldName="addUserError" />
+                                </form>
+    	
+    	
     </div>
-
-    
-
 </body>
 </html>

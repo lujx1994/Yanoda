@@ -12,6 +12,7 @@ import com.dao.UserDao;
 import com.entity.Form;
 import com.entity.Tuser;
 import com.opensymphony.xwork2.ActionSupport;
+import com.service.Month;
 import com.service.SimpleDate;
 import com.service.WeatherUtil;
 
@@ -118,13 +119,22 @@ public class UserAction extends ActionSupport{
 		Form form = new Form();
 		Date date = new Date();
 		simpledate = SimpleDate.getSimpleDate(date);
+		String month = Month.getSimpleDate(date);
+		session.setAttribute("month", month);
 		form = FormDao.getForm(username,simpledate);
+		session.setAttribute("form", form);
 		if (form==null){
 			message = "请及时上传复命表";
 			session.setAttribute("message", message);
 			return SUCCESS;
 		}
 		else{
+			String form_name = form.getForm_name();
+			String form_date = form.getForm_date();
+			String download = form.getDownload();
+			session.setAttribute("form_name", form_name);
+			session.setAttribute("form_date", form_date);
+			session.setAttribute("download", download);
 			formconfirm = form.getConfirm();
 			if (formconfirm==null){
 				message = "复命表待审阅";
@@ -140,7 +150,6 @@ public class UserAction extends ActionSupport{
 		}catch (Exception ex) {
 			ex.printStackTrace();
 			return SUCCESS;
-			
 		}
 	}
 	

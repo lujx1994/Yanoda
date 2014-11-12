@@ -22,7 +22,7 @@
 	<result name="success">/download.jsp</result>
 	</action>
 	<action name="message" class="com.action.UserAction" method="showMessage">
-	<result name="success">/calendar.jsp</result>
+	<result name="success">/message.jsp</result>
 	</action>
 	<action name="adduser" class="com.action.UserAction" method="addUser">
 	<result name="success">/adduser.jsp</result>
@@ -39,6 +39,9 @@
 	<result name="success">/updateuser.jsp</result>
 	<result name="input">/index.jsp</result>
 	</action>
+    <action name="write" class="com.service.WriteXMLFile" method="writeXMLFile">
+    <result name="success">/writetable.jsp</result>
+    </action>
 </package>
  
 </struts>

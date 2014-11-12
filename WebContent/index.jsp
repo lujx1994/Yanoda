@@ -108,16 +108,6 @@
 						</div>
                     </div>
                     <div class="tile quadro double-vertical ol-transparent">
-						<div class="tile-content icon bg-darkRed">
-						<i class="icon-play-alt"></i>
-						</div>
-						<div class="brand bg-black">
-							<span class="label fg-white">Player</span>
-							<div class="badge bg-darkRed paused"></div>
-						</div>   
-                    </div>
-                    <a href="message">
-                    <div class="tile double ol-transparent">
                     	<div class="tile-content icon bg-amber">
 						<i class="icon-alarm-clock"></i>
 						</div>
@@ -125,17 +115,16 @@
 							<span class="label fg-white">日历</span>
 						</div>
                     </div>
-                    </a>
-                    <a href="upload.jsp">
-                    <div class="tile ol-transparent">
-						<div class="tile-content icon bg-darkRed">
-							<i class="icon-upload-3"></i>
+                    <div class="tile double ol-transparent">
+                    	<div class="tile-content icon bg-darkRed">
+						<i class="icon-play-alt"></i>
 						</div>
-						<div class="brand">
-							<span class="label fg-white">上传</span>
+						<div class="brand bg-black">
+							<span class="label fg-white">Player</span>
+							<div class="badge bg-darkRed paused"></div>
 						</div>
                     </div>
-                    </a>
+                    <s:if test="#session.range!=3">
                     <a href="download">
                     <div class="tile ol-transparent">
 						<div class="tile-content icon bg-darkBlue">
@@ -146,6 +135,33 @@
 						</div>
                     </div>
                     </a>
+                    </s:if>
+                    <s:else>
+                    <a href="download">
+                    <div class="tile double ol-transparent">
+						<div class="tile-content icon bg-darkBlue">
+							<i class="icon-download-2"></i>
+						</div>
+						<div class="brand">
+							<span class="label fg-white">下载</span>
+						</div>
+                    </div>
+                    </a>
+                    </s:else>
+                    <s:if test="#session.range!=3">
+                    <a href="upload.jsp">
+                    <div class="tile ol-transparent">
+						<div class="tile-content icon bg-darkRed">
+							<i class="icon-upload-3"></i>
+						</div>
+						<div class="brand">
+							<span class="label fg-white">上传</span>
+						</div>
+                    </div>
+                    </a>
+                    </s:if>
+                    <s:if test="#session.range==4">
+                    <a href="message">
                     <div class="tile ol-transparent">
 						<div class="tile-content icon bg-darkPink">
 							<i class="icon-bell"></i>
@@ -155,6 +171,35 @@
 							<span class="badge bg-orange">3</span>
 						</div>
                     </div>
+                    </a>
+                    </s:if>
+                    <s:if test="#session.range==3">
+                    <a href="message">
+                    <div class="tile double ol-transparent">
+						<div class="tile-content icon bg-darkPink">
+							<i class="icon-bell"></i>
+						</div>
+						<div class="brand">
+							<span class="label fg-white">多文件控制</span>
+							<span class="badge bg-orange">3</span>
+						</div>
+                    </div>
+                    </a>
+                    </s:if>
+                    <s:if test="#session.range!=4&&#session.range!=3">
+                    <a href="message">
+                    <div class="tile double ol-transparent">
+						<div class="tile-content icon bg-darkPink">
+							<i class="icon-bell"></i>
+						</div>
+						<div class="brand">
+							<span class="label fg-white">提醒</span>
+							<span class="badge bg-orange">3</span>
+						</div>
+                    </div>
+                    </a>
+                    </s:if>
+                    <s:if test="#session.range==4">
                     <a href="adduser.jsp">
                     <div class="tile ol-transparent">
                     	<div class="tile-content icon bg-green">
@@ -165,6 +210,7 @@
 						</div>
                     </div>
                     </a>
+                    </s:if>
                     <div class="tile double ol-transparent">
                         <div class="tile-content icon bg-blue">
 							<s:if test="'小雨'==#session.showweather">
