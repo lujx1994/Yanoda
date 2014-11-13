@@ -42,9 +42,9 @@
     <action name="write" class="com.service.WriteXMLFile" method="writeXMLFile">
     <result name="success">/writetable.jsp</result>
     </action>
-	<!-- <action name="deleteuser" class="com.action.AdminAction" method="deleteUser">
+	<action name="deleteuser" class="com.action.AdminAction" method="deleteUser">
 	<result name="success" type="redirectAction">admin</result>
-	</action> -->
+	</action>
 	<action name="deleteform" class="com.action.AdminAction" method="deleteForm">
 	<result name="success" type="redirectAction">admin</result>
 	</action>
