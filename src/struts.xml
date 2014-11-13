@@ -42,6 +42,27 @@
     <action name="write" class="com.service.WriteXMLFile" method="writeXMLFile">
     <result name="success">/writetable.jsp</result>
     </action>
+	<!-- <action name="deleteuser" class="com.action.AdminAction" method="deleteUser">
+	<result name="success" type="redirectAction">admin</result>
+	</action> -->
+	<action name="deleteform" class="com.action.AdminAction" method="deleteForm">
+	<result name="success" type="redirectAction">admin</result>
+	</action>
+	<action name="showUserBeforeUpdate" class="com.action.AdminAction" method="findByUserId">
+	<result name="success">/adminupdateuser.jsp</result>
+	</action>
+	<action name="adminupdateuser" class="com.action.AdminAction" method="adminUpdateUser">
+	<result name="success" type="redirectAction">admin</result>
+	</action>
+	<action name="showFormBeforeUpdate" class="com.action.AdminAction" method="findByFormId">
+	<result name="success">/adminupdateform.jsp</result>
+	</action>
+	<action name="adminupdateform" class="com.action.AdminAction" method="adminUpdateForm">
+	<result name="success" type="redirectAction">admin</result>
+	</action>
+	<action name="admin" class="com.action.AdminAction" method="showAll">
+	<result name="success">/admin.jsp</result>
+	</action>
 </package>
  
 </struts>

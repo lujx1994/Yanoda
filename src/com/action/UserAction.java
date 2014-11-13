@@ -24,6 +24,14 @@ public class UserAction extends ActionSupport{
 	private String lower_users;
 	private String user_realname;
 	private Tuser user;
+	private Form form;
+	public Form getForm() {
+		return form;
+	}
+	public void setForm(Form form) {
+		this.form = form;
+	}
+
 	private String message;
 	private String simpledate;
 	private int range;
@@ -236,4 +244,6 @@ public class UserAction extends ActionSupport{
 		session.setAttribute("range", null);
 		return "success";
 	}
+	
+	
 }

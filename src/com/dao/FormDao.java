@@ -3,6 +3,7 @@ package com.dao;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import com.entity.Form;
 import com.hibernate.util.HibernateUtil;
@@ -55,4 +56,17 @@ public class FormDao {
 			
 		}
 	}
+	
+	public static Form findByFormId(int id){
+		Form form = null;
+		Session session = null;
+		try {
+		session = HibernateUtil.getHibernateSession();
+		session.beginTransaction();
+		form = (Form)session.createCriteria(Form.class).add(Restrictions.eq("id", id)).uniqueResult();
+		session.getTransaction().commit();
+		} catch (Exception e) {
+		}
+		return form;
+		}
 }
