@@ -96,7 +96,7 @@
                     <th class="text-left">复命人</th>
                     <th class="text-left">复命文件名</th>
                     <th class="text-left">上传时间</th>
-                    <th class="text-left">下载</th>
+                    <th class="text-left">下载或查看</th>
                 </tr>
                 </thead>
 
@@ -107,6 +107,7 @@
                 <td class="right"><s:property value="form_name"/></td>
                 <td class="right"><s:property value="form_date"/></td>
                 <td class="right"><a href=<s:property value="download"/>><i class="icon-floppy on-left"></i>下载</a></td>
+                <td class="right"><a href="readxml.action?xmldownload=<s:property value="form_name"/>"><i class="icon-floppy on-left"></i>查看</a></td>
                 </tr>
                 </s:iterator>
                 </tbody>

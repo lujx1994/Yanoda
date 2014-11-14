@@ -39,7 +39,7 @@
 	<result name="success">/updateuser.jsp</result>
 	<result name="input">/index.jsp</result>
 	</action>
-    <action name="write" class="com.service.WriteXMLFile" method="writeXMLFile">
+    <action name="write" class="com.action.WriteXMLAction" method="writeXMLFile">
     <result name="success">/writetable.jsp</result>
     </action>
 	<action name="deleteuser" class="com.action.AdminAction" method="deleteUser">
@@ -62,6 +62,9 @@
 	</action>
 	<action name="admin" class="com.action.AdminAction" method="showAll">
 	<result name="success">/admin.jsp</result>
+	</action>
+	<action name="readxml" class="com.action.WriteXMLAction" method="readXML">
+	<result name="success">/tables.jsp</result>
 	</action>
 </package>
  

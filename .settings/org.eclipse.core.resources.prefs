@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/index.jsp=UTF-8
+encoding//WebContent/tables.jsp=UTF-8
 encoding//src/com/action/UserAction.java=UTF-8
 encoding//src/com/service/SMS.java=GBK
 encoding/<project>=UTF-8
